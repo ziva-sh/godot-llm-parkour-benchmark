@@ -1,0 +1,994 @@
+[gd_scene format=3 uid="uid://dx1n31poshbi4"]
+
+[ext_resource type="PackedScene" uid="uid://dwiuonmsunbwh" path="res://Kenny_Platformer_Kit/Models/GLB format/block-grass-large.glb" id="1_xgqkh"]
+[ext_resource type="PackedScene" uid="uid://bwspq6cxbttub" path="res://Kenny_Platformer_Kit/Models/GLB format/tree.glb" id="2_munwf"]
+[ext_resource type="PackedScene" uid="uid://b8cq3k4ef161p" path="res://Kenny_Platformer_Kit/Models/GLB format/tree-pine.glb" id="3_ts3gi"]
+[ext_resource type="PackedScene" uid="uid://seb8q2gle3nl" path="res://Kenny_Platformer_Kit/Models/GLB format/tree-pine-small.glb" id="4_0nbtd"]
+[ext_resource type="PackedScene" uid="uid://cpevepck8scrm" path="res://Kenny_Platformer_Kit/Models/GLB format/flowers.glb" id="5_37qwj"]
+[ext_resource type="PackedScene" uid="uid://cqt7mhncfc2gx" path="res://Kenny_Platformer_Kit/Models/GLB format/flowers-tall.glb" id="6_navra"]
+[ext_resource type="PackedScene" uid="uid://blsk5681cjler" path="res://Kenny_Platformer_Kit/Models/GLB format/grass.glb" id="7_luhhm"]
+[ext_resource type="PackedScene" uid="uid://ben8auneci2v8" path="res://Kenny_Platformer_Kit/Models/GLB format/mushrooms.glb" id="8_fh13f"]
+[ext_resource type="PackedScene" uid="uid://b3davu7rpugat" path="res://Kenny_Platformer_Kit/Models/GLB format/rocks.glb" id="9_rup4s"]
+[ext_resource type="PackedScene" uid="uid://611yyfhw7t16" path="res://Kenny_Platformer_Kit/Models/GLB format/flag.glb" id="10_4kbfs"]
+[ext_resource type="PackedScene" uid="uid://q67lq0ms61su" path="res://Kenny_Platformer_Kit/Models/GLB format/sign.glb" id="11_f17e3"]
+[ext_resource type="PackedScene" uid="uid://sadqu5fmuaod" path="res://Kenny_Platformer_Kit/Models/GLB format/block-snow-large.glb" id="12_x2olw"]
+[ext_resource type="PackedScene" uid="uid://bcm6eje8udpop" path="res://Kenny_Platformer_Kit/Models/GLB format/tree-pine-snow.glb" id="13_817gm"]
+[ext_resource type="PackedScene" uid="uid://bpm47lmnw2g05" path="res://Kenny_Platformer_Kit/Models/GLB format/tree-pine-snow-small.glb" id="14_ggc52"]
+[ext_resource type="PackedScene" uid="uid://cru03lpi36usa" path="res://Kenny_Platformer_Kit/Models/GLB format/block-grass-low-large.glb" id="15_l8ah6"]
+[ext_resource type="PackedScene" uid="uid://bmppy5bbi3ido" path="res://Kenny_Platformer_Kit/Models/GLB format/platform.glb" id="16_e75v4"]
+[ext_resource type="PackedScene" uid="uid://d3f81y74phrky" path="res://Kenny_Platformer_Kit/Models/GLB format/jewel.glb" id="17_8u370"]
+[ext_resource type="PackedScene" path="res://scenes/bot.tscn" id="18_rga7q"]
+[ext_resource type="PackedScene" uid="uid://b4ptyxmr86qdy" path="res://Kenny_Platformer_Kit/Models/GLB format/character-oobi.glb" id="20_hi6a0"]
+[ext_resource type="PackedScene" uid="uid://c6anupwue5xy6" path="res://Kenny_Platformer_Kit/Models/GLB format/character-oodi.glb" id="21_eo1xk"]
+[ext_resource type="PackedScene" uid="uid://ci551dvy5o1mi" path="res://Kenny_Platformer_Kit/Models/GLB format/character-ooli.glb" id="22_18clu"]
+[ext_resource type="PackedScene" uid="uid://dnjr5uj6xjbox" path="res://Kenny_Platformer_Kit/Models/GLB format/character-oopi.glb" id="23_4wdv8"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="24_d46x8"]
+[ext_resource type="Script" uid="uid://bts13oi0oaw8f" path="res://scripts/game.gd" id="26_game"]
+[ext_resource type="Script" uid="uid://br377gx6ymvxs" path="res://scripts/race.gd" id="27_race"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28ej"]
+sky_top_color = Color(0.35, 0.55, 0.85, 1)
+sky_horizon_color = Color(0.75, 0.85, 0.95, 1)
+ground_bottom_color = Color(0.3, 0.4, 0.35, 1)
+ground_horizon_color = Color(0.75, 0.85, 0.95, 1)
+
+[sub_resource type="Sky" id="Sky_1jxku"]
+sky_material = SubResource("ProceduralSkyMaterial_x28ej")
+
+[sub_resource type="Environment" id="Environment_1dgkn"]
+background_mode = 2
+sky = SubResource("Sky_1jxku")
+ambient_light_source = 3
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e68xj"]
+data = PackedVector3Array(1, 1, -0.7263, 1, 1, 0.7262, 0.9198, 1, 0.9198, 0.9198, 1, 0.9198, 0.9198, 1, -0.9198, 1, 1, -0.7263, 0.9198, 1, 0.9198, 0.7262, 1, 1, 0.9198, 1, -0.9198, 0.7262, 1, 1, 0.7262, 1, -1, 0.9198, 1, -0.9198, 0.7262, 1, 1, -0.7263, 1, 1, 0.7262, 1, -1, -0.7263, 1, 1, -0.7263, 1, -1, 0.7262, 1, -1, -0.7263, 1, 1, -0.9198, 1, 0.9198, -0.7263, 1, -1, -0.9198, 1, 0.9198, -0.9198, 1, -0.9198, -0.7263, 1, -1, -0.9198, 1, 0.9198, -1, 1, 0.7262, -0.9198, 1, -0.9198, -1, 1, 0.7262, -1, 1, -0.7263, -0.9198, 1, -0.9198, 1.0411, 0.875, 0.7536, 1.0411, 0.875, -0.7536, 1, 0.75, -0.7263, 1, 0.75, -0.7263, 1, 0.75, 0.7262, 1.0411, 0.875, 0.7536, -0.7536, 0.875, -1.0411, -0.7263, 0.75, -1, 0.7262, 0.75, -1, 0.7262, 0.75, -1, 0.7536, 0.875, -1.0411, -0.7536, 0.875, -1.0411, -0.9198, 0.75, -0.9198, -0.9569, 0.875, -0.9569, -1.0411, 0.875, -0.7536, -1.0411, 0.875, -0.7536, -1, 0.75, -0.7263, -0.9198, 0.75, -0.9198, 0.9569, 0.875, 0.9569, 0.9198, 0.75, 0.9198, 0.7262, 0.75, 1, 0.7262, 0.75, 1, 0.7536, 0.875, 1.0411, 0.9569, 0.875, 0.9569, 0.7536, 0.875, -1.0411, 0.7262, 0.75, -1, 0.9198, 0.75, -0.9198, 0.9198, 0.75, -0.9198, 0.9569, 0.875, -0.9569, 0.7536, 0.875, -1.0411, -1, 0.75, -0.7263, -1.0411, 0.875, -0.7536, -1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -1, 0.75, 0.7262, -1, 0.75, -0.7263, -0.7536, 0.875, 1.0411, -0.7263, 0.75, 1, -0.9198, 0.75, 0.9198, -0.9198, 0.75, 0.9198, -0.9569, 0.875, 0.9569, -0.7536, 0.875, 1.0411, 0.7262, 0.75, 1, -0.7263, 0.75, 1, -0.7536, 0.875, 1.0411, -0.7536, 0.875, 1.0411, 0.7536, 0.875, 1.0411, 0.7262, 0.75, 1, -0.9569, 0.875, -0.9569, -0.9198, 0.75, -0.9198, -0.7263, 0.75, -1, -0.7263, 0.75, -1, -0.7536, 0.875, -1.0411, -0.9569, 0.875, -0.9569, -0.9198, 0.75, 0.9198, -1, 0.75, 0.7262, -1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -0.9569, 0.875, 0.9569, -0.9198, 0.75, 0.9198, 1.0411, 0.875, -0.7536, 0.9569, 0.875, -0.9569, 0.9198, 0.75, -0.9198, 0.9198, 0.75, -0.9198, 1, 0.75, -0.7263, 1.0411, 0.875, -0.7536, 1.0411, 0.875, 0.7536, 1, 0.75, 0.7262, 0.9198, 0.75, 0.9198, 0.9198, 0.75, 0.9198, 0.9569, 0.875, 0.9569, 1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -1.0411, 0.875, -0.7536, -1, 1, -0.7263, -1, 1, -0.7263, -1, 1, 0.7262, -1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -1, 1, 0.7262, -0.9198, 1, 0.9198, -0.9198, 1, 0.9198, -0.9569, 0.875, 0.9569, -1.0411, 0.875, 0.7536, -0.7263, 1, 1, -0.7536, 0.875, 1.0411, -0.9569, 0.875, 0.9569, -0.9569, 0.875, 0.9569, -0.9198, 1, 0.9198, -0.7263, 1, 1, 0.7536, 0.875, 1.0411, -0.7536, 0.875, 1.0411, -0.7263, 1, 1, -0.7263, 1, 1, 0.7262, 1, 1, 0.7536, 0.875, 1.0411, 1, 1, -0.7263, 1.0411, 0.875, -0.7536, 1.0411, 0.875, 0.7536, 1.0411, 0.875, 0.7536, 1, 1, 0.7262, 1, 1, -0.7263, 0.7262, 1, -1, 0.7536, 0.875, -1.0411, 0.9569, 0.875, -0.9569, 0.9569, 0.875, -0.9569, 0.9198, 1, -0.9198, 0.7262, 1, -1, -0.7263, 1, -1, -0.7536, 0.875, -1.0411, 0.7536, 0.875, -1.0411, 0.7536, 0.875, -1.0411, 0.7262, 1, -1, -0.7263, 1, -1, 0.9198, 1, -0.9198, 0.9569, 0.875, -0.9569, 1.0411, 0.875, -0.7536, 1.0411, 0.875, -0.7536, 1, 1, -0.7263, 0.9198, 1, -0.9198, -0.9198, 1, -0.9198, -0.9569, 0.875, -0.9569, -0.7536, 0.875, -1.0411, -0.7536, 0.875, -1.0411, -0.7263, 1, -1, -0.9198, 1, -0.9198, -1.0411, 0.875, -0.7536, -0.9569, 0.875, -0.9569, -0.9198, 1, -0.9198, -0.9198, 1, -0.9198, -1, 1, -0.7263, -1.0411, 0.875, -0.7536, 0.9198, 1, 0.9198, 0.9569, 0.875, 0.9569, 0.7536, 0.875, 1.0411, 0.7536, 0.875, 1.0411, 0.7262, 1, 1, 0.9198, 1, 0.9198, 0.9198, 1, 0.9198, 1, 1, 0.7262, 1.0411, 0.875, 0.7536, 1.0411, 0.875, 0.7536, 0.9569, 0.875, 0.9569, 0.9198, 1, 0.9198, 0.7262, 0.75, -1, 0.7262, 0, -1, 0.9198, 0, -0.9198, 0.9198, 0, -0.9198, 0.9198, 0.75, -0.9198, 0.7262, 0.75, -1, -1, 0, -0.7263, -0.9198, 0, -0.9198, -0.9198, 0.75, -0.9198, -0.9198, 0.75, -0.9198, -1, 0.75, -0.7263, -1, 0, -0.7263, 0.9198, 0.75, 0.9198, 0.9198, 0, 0.9198, 0.7262, 0, 1, 0.7262, 0, 1, 0.7262, 0.75, 1, 0.9198, 0.75, 0.9198, 0.7262, 0.75, 1, 0.7262, 0, 1, -0.7263, 0, 1, -0.7263, 0, 1, -0.7263, 0.75, 1, 0.7262, 0.75, 1, 0.9198, 0, 0.9198, 1, 0, 0.7262, 1, 0, -0.7263, 1, 0, -0.7263, 0.9198, 0, -0.9198, 0.9198, 0, 0.9198, 0.9198, 0, -0.9198, 0.7262, 0, 1, 0.9198, 0, 0.9198, 0.9198, 0, -0.9198, 0.7262, 0, -1, 0.7262, 0, 1, 0.7262, 0, -1, -0.7263, 0, 1, 0.7262, 0, 1, 0.7262, 0, -1, -0.7263, 0, -1, -0.7263, 0, 1, -0.7263, 0, -1, -0.9198, 0, 0.9198, -0.7263, 0, 1, -0.7263, 0, -1, -0.9198, 0, -0.9198, -0.9198, 0, 0.9198, -0.9198, 0, -0.9198, -1, 0, 0.7262, -0.9198, 0, 0.9198, -0.9198, 0, -0.9198, -1, 0, -0.7263, -1, 0, 0.7262, -0.7263, 0.75, -1, -0.7263, 0, -1, 0.7262, 0, -1, 0.7262, 0, -1, 0.7262, 0.75, -1, -0.7263, 0.75, -1, -0.7263, 0.75, 1, -0.7263, 0, 1, -0.9198, 0, 0.9198, -0.9198, 0, 0.9198, -0.9198, 0.75, 0.9198, -0.7263, 0.75, 1, 0.9198, 0.75, 0.9198, 1, 0.75, 0.7262, 1, 0, 0.7262, 1, 0, 0.7262, 0.9198, 0, 0.9198, 0.9198, 0.75, 0.9198, -1, 0, 0.7262, -1, 0, -0.7263, -1, 0.75, -0.7263, -1, 0.75, -0.7263, -1, 0.75, 0.7262, -1, 0, 0.7262, -0.9198, 0, 0.9198, -1, 0, 0.7262, -1, 0.75, 0.7262, -1, 0.75, 0.7262, -0.9198, 0.75, 0.9198, -0.9198, 0, 0.9198, 1, 0.75, 0.7262, 1, 0.75, -0.7263, 1, 0, -0.7263, 1, 0, -0.7263, 1, 0, 0.7262, 1, 0.75, 0.7262, -0.9198, 0.75, -0.9198, -0.9198, 0, -0.9198, -0.7263, 0, -1, -0.7263, 0, -1, -0.7263, 0.75, -1, -0.9198, 0.75, -0.9198, 1, 0.75, -0.7263, 0.9198, 0.75, -0.9198, 0.9198, 0, -0.9198, 0.9198, 0, -0.9198, 1, 0, -0.7263, 1, 0.75, -0.7263)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5hglh"]
+data = PackedVector3Array(1, 1, -0.7263, 1, 1, 0.7262, 0.9198, 1, 0.9198, 0.9198, 1, 0.9198, 0.9198, 1, -0.9198, 1, 1, -0.7263, 0.9198, 1, 0.9198, 0.7262, 1, 1, 0.9198, 1, -0.9198, 0.7262, 1, 1, 0.7262, 1, -1, 0.9198, 1, -0.9198, 0.7262, 1, 1, -0.7263, 1, 1, 0.7262, 1, -1, -0.7263, 1, 1, -0.7263, 1, -1, 0.7262, 1, -1, -0.7263, 1, 1, -0.9198, 1, 0.9198, -0.7263, 1, -1, -0.9198, 1, 0.9198, -0.9198, 1, -0.9198, -0.7263, 1, -1, -0.9198, 1, 0.9198, -1, 1, 0.7262, -0.9198, 1, -0.9198, -1, 1, 0.7262, -1, 1, -0.7263, -0.9198, 1, -0.9198, 1.0411, 0.875, 0.7536, 1.0411, 0.875, -0.7536, 1, 0.75, -0.7263, 1, 0.75, -0.7263, 1, 0.75, 0.7262, 1.0411, 0.875, 0.7536, -0.7536, 0.875, -1.0411, -0.7263, 0.75, -1, 0.7262, 0.75, -1, 0.7262, 0.75, -1, 0.7536, 0.875, -1.0411, -0.7536, 0.875, -1.0411, -0.9198, 0.75, -0.9198, -0.9569, 0.875, -0.9569, -1.0411, 0.875, -0.7536, -1.0411, 0.875, -0.7536, -1, 0.75, -0.7263, -0.9198, 0.75, -0.9198, 0.9569, 0.875, 0.9569, 0.9198, 0.75, 0.9198, 0.7262, 0.75, 1, 0.7262, 0.75, 1, 0.7536, 0.875, 1.0411, 0.9569, 0.875, 0.9569, 0.7536, 0.875, -1.0411, 0.7262, 0.75, -1, 0.9198, 0.75, -0.9198, 0.9198, 0.75, -0.9198, 0.9569, 0.875, -0.9569, 0.7536, 0.875, -1.0411, -1, 0.75, -0.7263, -1.0411, 0.875, -0.7536, -1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -1, 0.75, 0.7262, -1, 0.75, -0.7263, -0.7536, 0.875, 1.0411, -0.7263, 0.75, 1, -0.9198, 0.75, 0.9198, -0.9198, 0.75, 0.9198, -0.9569, 0.875, 0.9569, -0.7536, 0.875, 1.0411, 0.7262, 0.75, 1, -0.7263, 0.75, 1, -0.7536, 0.875, 1.0411, -0.7536, 0.875, 1.0411, 0.7536, 0.875, 1.0411, 0.7262, 0.75, 1, -0.9569, 0.875, -0.9569, -0.9198, 0.75, -0.9198, -0.7263, 0.75, -1, -0.7263, 0.75, -1, -0.7536, 0.875, -1.0411, -0.9569, 0.875, -0.9569, -0.9198, 0.75, 0.9198, -1, 0.75, 0.7262, -1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -0.9569, 0.875, 0.9569, -0.9198, 0.75, 0.9198, 1.0411, 0.875, -0.7536, 0.9569, 0.875, -0.9569, 0.9198, 0.75, -0.9198, 0.9198, 0.75, -0.9198, 1, 0.75, -0.7263, 1.0411, 0.875, -0.7536, 1.0411, 0.875, 0.7536, 1, 0.75, 0.7262, 0.9198, 0.75, 0.9198, 0.9198, 0.75, 0.9198, 0.9569, 0.875, 0.9569, 1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -1.0411, 0.875, -0.7536, -1, 1, -0.7263, -1, 1, -0.7263, -1, 1, 0.7262, -1.0411, 0.875, 0.7536, -1.0411, 0.875, 0.7536, -1, 1, 0.7262, -0.9198, 1, 0.9198, -0.9198, 1, 0.9198, -0.9569, 0.875, 0.9569, -1.0411, 0.875, 0.7536, -0.7263, 1, 1, -0.7536, 0.875, 1.0411, -0.9569, 0.875, 0.9569, -0.9569, 0.875, 0.9569, -0.9198, 1, 0.9198, -0.7263, 1, 1, 0.7536, 0.875, 1.0411, -0.7536, 0.875, 1.0411, -0.7263, 1, 1, -0.7263, 1, 1, 0.7262, 1, 1, 0.7536, 0.875, 1.0411, 1, 1, -0.7263, 1.0411, 0.875, -0.7536, 1.0411, 0.875, 0.7536, 1.0411, 0.875, 0.7536, 1, 1, 0.7262, 1, 1, -0.7263, 0.7262, 1, -1, 0.7536, 0.875, -1.0411, 0.9569, 0.875, -0.9569, 0.9569, 0.875, -0.9569, 0.9198, 1, -0.9198, 0.7262, 1, -1, -0.7263, 1, -1, -0.7536, 0.875, -1.0411, 0.7536, 0.875, -1.0411, 0.7536, 0.875, -1.0411, 0.7262, 1, -1, -0.7263, 1, -1, 0.9198, 1, -0.9198, 0.9569, 0.875, -0.9569, 1.0411, 0.875, -0.7536, 1.0411, 0.875, -0.7536, 1, 1, -0.7263, 0.9198, 1, -0.9198, -0.9198, 1, -0.9198, -0.9569, 0.875, -0.9569, -0.7536, 0.875, -1.0411, -0.7536, 0.875, -1.0411, -0.7263, 1, -1, -0.9198, 1, -0.9198, -1.0411, 0.875, -0.7536, -0.9569, 0.875, -0.9569, -0.9198, 1, -0.9198, -0.9198, 1, -0.9198, -1, 1, -0.7263, -1.0411, 0.875, -0.7536, 0.9198, 1, 0.9198, 0.9569, 0.875, 0.9569, 0.7536, 0.875, 1.0411, 0.7536, 0.875, 1.0411, 0.7262, 1, 1, 0.9198, 1, 0.9198, 0.9198, 1, 0.9198, 1, 1, 0.7262, 1.0411, 0.875, 0.7536, 1.0411, 0.875, 0.7536, 0.9569, 0.875, 0.9569, 0.9198, 1, 0.9198, 0.7262, 0.75, -1, 0.7262, 0, -1, 0.9198, 0, -0.9198, 0.9198, 0, -0.9198, 0.9198, 0.75, -0.9198, 0.7262, 0.75, -1, -1, 0, -0.7263, -0.9198, 0, -0.9198, -0.9198, 0.75, -0.9198, -0.9198, 0.75, -0.9198, -1, 0.75, -0.7263, -1, 0, -0.7263, 0.9198, 0.75, 0.9198, 0.9198, 0, 0.9198, 0.7262, 0, 1, 0.7262, 0, 1, 0.7262, 0.75, 1, 0.9198, 0.75, 0.9198, 0.7262, 0.75, 1, 0.7262, 0, 1, -0.7263, 0, 1, -0.7263, 0, 1, -0.7263, 0.75, 1, 0.7262, 0.75, 1, 0.9198, 0, 0.9198, 1, 0, 0.7262, 1, 0, -0.7263, 1, 0, -0.7263, 0.9198, 0, -0.9198, 0.9198, 0, 0.9198, 0.9198, 0, -0.9198, 0.7262, 0, 1, 0.9198, 0, 0.9198, 0.9198, 0, -0.9198, 0.7262, 0, -1, 0.7262, 0, 1, 0.7262, 0, -1, -0.7263, 0, 1, 0.7262, 0, 1, 0.7262, 0, -1, -0.7263, 0, -1, -0.7263, 0, 1, -0.7263, 0, -1, -0.9198, 0, 0.9198, -0.7263, 0, 1, -0.7263, 0, -1, -0.9198, 0, -0.9198, -0.9198, 0, 0.9198, -0.9198, 0, -0.9198, -1, 0, 0.7262, -0.9198, 0, 0.9198, -0.9198, 0, -0.9198, -1, 0, -0.7263, -1, 0, 0.7262, -0.7263, 0.75, -1, -0.7263, 0, -1, 0.7262, 0, -1, 0.7262, 0, -1, 0.7262, 0.75, -1, -0.7263, 0.75, -1, -0.7263, 0.75, 1, -0.7263, 0, 1, -0.9198, 0, 0.9198, -0.9198, 0, 0.9198, -0.9198, 0.75, 0.9198, -0.7263, 0.75, 1, 0.9198, 0.75, 0.9198, 1, 0.75, 0.7262, 1, 0, 0.7262, 1, 0, 0.7262, 0.9198, 0, 0.9198, 0.9198, 0.75, 0.9198, -1, 0, 0.7262, -1, 0, -0.7263, -1, 0.75, -0.7263, -1, 0.75, -0.7263, -1, 0.75, 0.7262, -1, 0, 0.7262, -0.9198, 0, 0.9198, -1, 0, 0.7262, -1, 0.75, 0.7262, -1, 0.75, 0.7262, -0.9198, 0.75, 0.9198, -0.9198, 0, 0.9198, 1, 0.75, 0.7262, 1, 0.75, -0.7263, 1, 0, -0.7263, 1, 0, -0.7263, 1, 0, 0.7262, 1, 0.75, 0.7262, -0.9198, 0.75, -0.9198, -0.9198, 0, -0.9198, -0.7263, 0, -1, -0.7263, 0, -1, -0.7263, 0.75, -1, -0.9198, 0.75, -0.9198, 1, 0.75, -0.7263, 0.9198, 0.75, -0.9198, 0.9198, 0, -0.9198, 0.9198, 0, -0.9198, 1, 0, -0.7263, 1, 0.75, -0.7263)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qg546"]
+data = PackedVector3Array(1, 0.5, -0.7263, 1, 0.5, 0.7262, 0.9198, 0.5, 0.9198, 0.9198, 0.5, 0.9198, 0.9198, 0.5, -0.9198, 1, 0.5, -0.7263, 0.9198, 0.5, 0.9198, 0.7262, 0.5, 1, 0.9198, 0.5, -0.9198, 0.7262, 0.5, 1, 0.7262, 0.5, -1, 0.9198, 0.5, -0.9198, 0.7262, 0.5, 1, -0.7263, 0.5, 1, 0.7262, 0.5, -1, -0.7263, 0.5, 1, -0.7263, 0.5, -1, 0.7262, 0.5, -1, -0.7263, 0.5, 1, -0.9198, 0.5, 0.9198, -0.7263, 0.5, -1, -0.9198, 0.5, 0.9198, -0.9198, 0.5, -0.9198, -0.7263, 0.5, -1, -0.9198, 0.5, 0.9198, -1, 0.5, 0.7262, -0.9198, 0.5, -0.9198, -1, 0.5, 0.7262, -1, 0.5, -0.7263, -0.9198, 0.5, -0.9198, 1.0411, 0.375, 0.7536, 1.0411, 0.375, -0.7536, 1, 0.25, -0.7263, 1, 0.25, -0.7263, 1, 0.25, 0.7262, 1.0411, 0.375, 0.7536, -0.7536, 0.375, -1.0411, -0.7263, 0.25, -1, 0.7262, 0.25, -1, 0.7262, 0.25, -1, 0.7536, 0.375, -1.0411, -0.7536, 0.375, -1.0411, -0.9198, 0.25, -0.9198, -0.9569, 0.375, -0.9569, -1.0411, 0.375, -0.7536, -1.0411, 0.375, -0.7536, -1, 0.25, -0.7263, -0.9198, 0.25, -0.9198, 0.9569, 0.375, 0.9569, 0.9198, 0.25, 0.9198, 0.7262, 0.25, 1, 0.7262, 0.25, 1, 0.7536, 0.375, 1.0411, 0.9569, 0.375, 0.9569, 0.7536, 0.375, -1.0411, 0.7262, 0.25, -1, 0.9198, 0.25, -0.9198, 0.9198, 0.25, -0.9198, 0.9569, 0.375, -0.9569, 0.7536, 0.375, -1.0411, -1, 0.25, -0.7263, -1.0411, 0.375, -0.7536, -1.0411, 0.375, 0.7536, -1.0411, 0.375, 0.7536, -1, 0.25, 0.7262, -1, 0.25, -0.7263, -0.7536, 0.375, 1.0411, -0.7263, 0.25, 1, -0.9198, 0.25, 0.9198, -0.9198, 0.25, 0.9198, -0.9569, 0.375, 0.9569, -0.7536, 0.375, 1.0411, 0.7262, 0.25, 1, -0.7263, 0.25, 1, -0.7536, 0.375, 1.0411, -0.7536, 0.375, 1.0411, 0.7536, 0.375, 1.0411, 0.7262, 0.25, 1, -0.9569, 0.375, -0.9569, -0.9198, 0.25, -0.9198, -0.7263, 0.25, -1, -0.7263, 0.25, -1, -0.7536, 0.375, -1.0411, -0.9569, 0.375, -0.9569, -0.9198, 0.25, 0.9198, -1, 0.25, 0.7262, -1.0411, 0.375, 0.7536, -1.0411, 0.375, 0.7536, -0.9569, 0.375, 0.9569, -0.9198, 0.25, 0.9198, 1.0411, 0.375, -0.7536, 0.9569, 0.375, -0.9569, 0.9198, 0.25, -0.9198, 0.9198, 0.25, -0.9198, 1, 0.25, -0.7263, 1.0411, 0.375, -0.7536, 1.0411, 0.375, 0.7536, 1, 0.25, 0.7262, 0.9198, 0.25, 0.9198, 0.9198, 0.25, 0.9198, 0.9569, 0.375, 0.9569, 1.0411, 0.375, 0.7536, -1.0411, 0.375, 0.7536, -1.0411, 0.375, -0.7536, -1, 0.5, -0.7263, -1, 0.5, -0.7263, -1, 0.5, 0.7262, -1.0411, 0.375, 0.7536, -1.0411, 0.375, 0.7536, -1, 0.5, 0.7262, -0.9198, 0.5, 0.9198, -0.9198, 0.5, 0.9198, -0.9569, 0.375, 0.9569, -1.0411, 0.375, 0.7536, -0.7263, 0.5, 1, -0.7536, 0.375, 1.0411, -0.9569, 0.375, 0.9569, -0.9569, 0.375, 0.9569, -0.9198, 0.5, 0.9198, -0.7263, 0.5, 1, 0.7536, 0.375, 1.0411, -0.7536, 0.375, 1.0411, -0.7263, 0.5, 1, -0.7263, 0.5, 1, 0.7262, 0.5, 1, 0.7536, 0.375, 1.0411, 1, 0.5, -0.7263, 1.0411, 0.375, -0.7536, 1.0411, 0.375, 0.7536, 1.0411, 0.375, 0.7536, 1, 0.5, 0.7262, 1, 0.5, -0.7263, 0.7262, 0.5, -1, 0.7536, 0.375, -1.0411, 0.9569, 0.375, -0.9569, 0.9569, 0.375, -0.9569, 0.9198, 0.5, -0.9198, 0.7262, 0.5, -1, -0.7263, 0.5, -1, -0.7536, 0.375, -1.0411, 0.7536, 0.375, -1.0411, 0.7536, 0.375, -1.0411, 0.7262, 0.5, -1, -0.7263, 0.5, -1, 0.9198, 0.5, -0.9198, 0.9569, 0.375, -0.9569, 1.0411, 0.375, -0.7536, 1.0411, 0.375, -0.7536, 1, 0.5, -0.7263, 0.9198, 0.5, -0.9198, -0.9198, 0.5, -0.9198, -0.9569, 0.375, -0.9569, -0.7536, 0.375, -1.0411, -0.7536, 0.375, -1.0411, -0.7263, 0.5, -1, -0.9198, 0.5, -0.9198, -1.0411, 0.375, -0.7536, -0.9569, 0.375, -0.9569, -0.9198, 0.5, -0.9198, -0.9198, 0.5, -0.9198, -1, 0.5, -0.7263, -1.0411, 0.375, -0.7536, 0.9198, 0.5, 0.9198, 0.9569, 0.375, 0.9569, 0.7536, 0.375, 1.0411, 0.7536, 0.375, 1.0411, 0.7262, 0.5, 1, 0.9198, 0.5, 0.9198, 0.9198, 0.5, 0.9198, 1, 0.5, 0.7262, 1.0411, 0.375, 0.7536, 1.0411, 0.375, 0.7536, 0.9569, 0.375, 0.9569, 0.9198, 0.5, 0.9198, 0.7262, 0.25, -1, 0.7262, 0, -1, 0.9198, 0, -0.9198, 0.9198, 0, -0.9198, 0.9198, 0.25, -0.9198, 0.7262, 0.25, -1, -1, 0, -0.7263, -0.9198, 0, -0.9198, -0.9198, 0.25, -0.9198, -0.9198, 0.25, -0.9198, -1, 0.25, -0.7263, -1, 0, -0.7263, 0.9198, 0.25, 0.9198, 0.9198, 0, 0.9198, 0.7262, 0, 1, 0.7262, 0, 1, 0.7262, 0.25, 1, 0.9198, 0.25, 0.9198, 0.7262, 0, 1, -0.7263, 0, 1, -0.7263, 0.25, 1, -0.7263, 0.25, 1, 0.7262, 0.25, 1, 0.7262, 0, 1, 0.9198, 0, 0.9198, 1, 0, 0.7262, 1, 0, -0.7263, 1, 0, -0.7263, 0.9198, 0, -0.9198, 0.9198, 0, 0.9198, 0.9198, 0, -0.9198, 0.7262, 0, 1, 0.9198, 0, 0.9198, 0.9198, 0, -0.9198, 0.7262, 0, -1, 0.7262, 0, 1, 0.7262, 0, -1, -0.7263, 0, 1, 0.7262, 0, 1, 0.7262, 0, -1, -0.7263, 0, -1, -0.7263, 0, 1, -0.7263, 0, -1, -0.9198, 0, 0.9198, -0.7263, 0, 1, -0.7263, 0, -1, -0.9198, 0, -0.9198, -0.9198, 0, 0.9198, -0.9198, 0, -0.9198, -1, 0, 0.7262, -0.9198, 0, 0.9198, -0.9198, 0, -0.9198, -1, 0, -0.7263, -1, 0, 0.7262, -0.7263, 0.25, -1, -0.7263, 0, -1, 0.7262, 0, -1, 0.7262, 0, -1, 0.7262, 0.25, -1, -0.7263, 0.25, -1, -0.7263, 0.25, 1, -0.7263, 0, 1, -0.9198, 0, 0.9198, -0.9198, 0, 0.9198, -0.9198, 0.25, 0.9198, -0.7263, 0.25, 1, 0.9198, 0.25, 0.9198, 1, 0.25, 0.7262, 1, 0, 0.7262, 1, 0, 0.7262, 0.9198, 0, 0.9198, 0.9198, 0.25, 0.9198, -1, 0, 0.7262, -1, 0, -0.7263, -1, 0.25, -0.7263, -1, 0.25, -0.7263, -1, 0.25, 0.7262, -1, 0, 0.7262, -0.9198, 0, 0.9198, -1, 0, 0.7262, -1, 0.25, 0.7262, -1, 0.25, 0.7262, -0.9198, 0.25, 0.9198, -0.9198, 0, 0.9198, 1, 0.25, 0.7262, 1, 0.25, -0.7263, 1, 0, -0.7263, 1, 0, -0.7263, 1, 0, 0.7262, 1, 0.25, 0.7262, -0.9198, 0.25, -0.9198, -0.9198, 0, -0.9198, -0.7263, 0, -1, -0.7263, 0, -1, -0.7263, 0.25, -1, -0.9198, 0.25, -0.9198, 1, 0.25, -0.7263, 0.9198, 0.25, -0.9198, 0.9198, 0, -0.9198, 0.9198, 0, -0.9198, 1, 0, -0.7263, 1, 0.25, -0.7263)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pf35h"]
+data = PackedVector3Array(-0.38, 0.12, -0.5, -0.38, 0, -0.5, -0.26, 0, -0.5, -0.26, 0, -0.5, -0.26, 0.12, -0.5, -0.38, 0.12, -0.5, -0.26, 0.12, 0.5, -0.26, 0, 0.5, -0.38, 0, 0.5, -0.38, 0, 0.5, -0.38, 0.12, 0.5, -0.26, 0.12, 0.5, -0.38, 0, 0.5, -0.26, 0, 0.5, -0.26, 0, -0.5, -0.26, 0, -0.5, -0.38, 0, -0.5, -0.38, 0, 0.5, -0.38, 0, 0.5, -0.38, 0, -0.5, -0.38, 0.12, -0.5, -0.38, 0.12, -0.5, -0.38, 0.12, 0.5, -0.38, 0, 0.5, -0.26, 0.12, 0.5, -0.26, 0.12, -0.5, -0.26, 0, -0.5, -0.26, 0, -0.5, -0.26, 0, 0.5, -0.26, 0.12, 0.5, -0.38, 0.12, -0.5, -0.26, 0.12, -0.5, -0.26, 0.12, 0.5, -0.26, 0.12, 0.5, -0.38, 0.12, 0.5, -0.38, 0.12, -0.5, 0.26, 0, 0.5, 0.26, 0, -0.5, 0.26, 0.12, -0.5, 0.26, 0.12, -0.5, 0.26, 0.12, 0.5, 0.26, 0, 0.5, 0.38, 0.12, 0.5, 0.38, 0, 0.5, 0.26, 0, 0.5, 0.26, 0, 0.5, 0.26, 0.12, 0.5, 0.38, 0.12, 0.5, 0.26, 0, 0.5, 0.38, 0, 0.5, 0.38, 0, -0.5, 0.38, 0, -0.5, 0.26, 0, -0.5, 0.26, 0, 0.5, 0.38, 0.12, 0.5, 0.38, 0.12, -0.5, 0.38, 0, -0.5, 0.38, 0, -0.5, 0.38, 0, 0.5, 0.38, 0.12, 0.5, 0.26, 0.12, -0.5, 0.26, 0, -0.5, 0.38, 0, -0.5, 0.38, 0, -0.5, 0.38, 0.12, -0.5, 0.26, 0.12, -0.5, 0.26, 0.12, -0.5, 0.38, 0.12, -0.5, 0.38, 0.12, 0.5, 0.38, 0.12, 0.5, 0.26, 0.12, 0.5, 0.26, 0.12, -0.5, -0.5, 0.195, 0.1529, -0.5, 0.12, 0.1529, 0.5, 0.12, 0.1529, 0.5, 0.12, 0.1529, 0.5, 0.1575, 0.1529, -0.5, 0.195, 0.1529, 0.5, 0.1575, 0.3471, 0.5, 0.1575, 0.1529, 0.5, 0.12, 0.1529, 0.5, 0.12, 0.1529, 0.5, 0.12, 0.3471, 0.5, 0.1575, 0.3471, 0.5, 0.1575, 0.3471, 0.5, 0.12, 0.3471, -0.5, 0.12, 0.3471, -0.5, 0.12, 0.3471, -0.5, 0.195, 0.3471, 0.5, 0.1575, 0.3471, -0.5, 0.12, 0.3471, -0.5, 0.12, 0.1529, -0.5, 0.195, 0.1529, -0.5, 0.195, 0.1529, -0.5, 0.195, 0.3471, -0.5, 0.12, 0.3471, -0.5, 0.195, 0.1529, 0.5, 0.1575, 0.1529, 0.5, 0.1575, 0.3471, 0.5, 0.1575, 0.3471, -0.5, 0.195, 0.3471, -0.5, 0.195, 0.1529, -0.5, 0.12, 0.3471, 0.5, 0.12, 0.3471, 0.5, 0.12, 0.1529, 0.5, 0.12, 0.1529, -0.5, 0.12, 0.1529, -0.5, 0.12, 0.3471, -0.5, 0.12, -0.40289998, 0.5, 0.12, -0.40289998, 0.5, 0.12, -0.5, 0.5, 0.12, -0.5, -0.5, 0.12, -0.5, -0.5, 0.12, -0.40289998, -0.5, 0.12, -0.40289998, -0.5, 0.12, -0.5, -0.5, 0.1575, -0.5, -0.5, 0.1575, -0.5, -0.5, 0.1575, -0.40289998, -0.5, 0.12, -0.40289998, 0.5, 0.195, -0.40289998, 0.5, 0.195, -0.5, 0.5, 0.12, -0.5, 0.5, 0.12, -0.5, 0.5, 0.12, -0.40289998, 0.5, 0.195, -0.40289998, 0.5, 0.195, -0.40289998, 0.5, 0.12, -0.40289998, -0.5, 0.12, -0.40289998, -0.5, 0.12, -0.40289998, -0.5, 0.1575, -0.40289998, 0.5, 0.195, -0.40289998, -0.5, 0.1575, -0.5, -0.5, 0.12, -0.5, 0.5, 0.12, -0.5, 0.5, 0.12, -0.5, 0.5, 0.195, -0.5, -0.5, 0.1575, -0.5, 0.5, 0.195, -0.5, 0.5, 0.195, -0.40289998, -0.5, 0.1575, -0.40289998, -0.5, 0.1575, -0.40289998, -0.5, 0.1575, -0.5, 0.5, 0.195, -0.5, -0.5, 0.1575, -0.0971, -0.5, 0.12, -0.0971, 0.5, 0.12, -0.0971, 0.5, 0.12, -0.0971, 0.5, 0.195, -0.0971, -0.5, 0.1575, -0.0971, -0.5, 0.1575, -0.0971, 0.5, 0.195, -0.0971, 0.5, 0.195, 0.0971, 0.5, 0.195, 0.0971, -0.5, 0.1575, 0.0971, -0.5, 0.1575, -0.0971, 0.5, 0.195, 0.0971, 0.5, 0.12, 0.0971, -0.5, 0.12, 0.0971, -0.5, 0.12, 0.0971, -0.5, 0.1575, 0.0971, 0.5, 0.195, 0.0971, -0.5, 0.12, 0.0971, 0.5, 0.12, 0.0971, 0.5, 0.12, -0.0971, 0.5, 0.12, -0.0971, -0.5, 0.12, -0.0971, -0.5, 0.12, 0.0971, 0.5, 0.195, 0.0971, 0.5, 0.195, -0.0971, 0.5, 0.12, -0.0971, 0.5, 0.12, -0.0971, 0.5, 0.12, 0.0971, 0.5, 0.195, 0.0971, -0.5, 0.12, 0.0971, -0.5, 0.12, -0.0971, -0.5, 0.1575, -0.0971, -0.5, 0.1575, -0.0971, -0.5, 0.1575, 0.0971, -0.5, 0.12, 0.0971, 0.5, 0.1575, -0.1529, 0.5, 0.1575, -0.3471, 0.5, 0.12, -0.3471, 0.5, 0.12, -0.3471, 0.5, 0.12, -0.1529, 0.5, 0.1575, -0.1529, 0.5, 0.1575, -0.3471, 0.5, 0.1575, -0.1529, -0.5, 0.195, -0.1529, -0.5, 0.195, -0.1529, -0.5, 0.195, -0.3471, 0.5, 0.1575, -0.3471, 0.5, 0.1575, -0.1529, 0.5, 0.12, -0.1529, -0.5, 0.12, -0.1529, -0.5, 0.12, -0.1529, -0.5, 0.195, -0.1529, 0.5, 0.1575, -0.1529, -0.5, 0.12, -0.1529, 0.5, 0.12, -0.1529, 0.5, 0.12, -0.3471, 0.5, 0.12, -0.3471, -0.5, 0.12, -0.3471, -0.5, 0.12, -0.1529, -0.5, 0.12, -0.1529, -0.5, 0.12, -0.3471, -0.5, 0.195, -0.3471, -0.5, 0.195, -0.3471, -0.5, 0.195, -0.1529, -0.5, 0.12, -0.1529, -0.5, 0.195, -0.3471, -0.5, 0.12, -0.3471, 0.5, 0.12, -0.3471, 0.5, 0.12, -0.3471, 0.5, 0.1575, -0.3471, -0.5, 0.195, -0.3471, -0.5, 0.1575, 0.40289998, -0.5, 0.12, 0.40289998, 0.5, 0.12, 0.40289998, 0.5, 0.12, 0.40289998, 0.5, 0.195, 0.40289998, -0.5, 0.1575, 0.40289998, 0.5, 0.195, 0.40289998, 0.5, 0.195, 0.5, -0.5, 0.1575, 0.5, -0.5, 0.1575, 0.5, -0.5, 0.1575, 0.40289998, 0.5, 0.195, 0.40289998, -0.5, 0.12, 0.5, -0.5, 0.12, 0.40289998, -0.5, 0.1575, 0.40289998, -0.5, 0.1575, 0.40289998, -0.5, 0.1575, 0.5, -0.5, 0.12, 0.5, 0.5, 0.195, 0.5, 0.5, 0.12, 0.5, -0.5, 0.12, 0.5, -0.5, 0.12, 0.5, -0.5, 0.1575, 0.5, 0.5, 0.195, 0.5, -0.5, 0.12, 0.5, 0.5, 0.12, 0.5, 0.5, 0.12, 0.40289998, 0.5, 0.12, 0.40289998, -0.5, 0.12, 0.40289998, -0.5, 0.12, 0.5, 0.5, 0.195, 0.5, 0.5, 0.195, 0.40289998, 0.5, 0.12, 0.40289998, 0.5, 0.12, 0.40289998, 0.5, 0.12, 0.5, 0.5, 0.195, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iexy4"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npbic"]
+size = Vector3(4, 2.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6ckp"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mvg0v"]
+size = Vector3(4, 2.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h3odw"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5hl1e"]
+size = Vector3(4, 2.5, 4)
+
+[node name="World" type="Node3D" unique_id=958911909]
+script = ExtResource("26_game")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=291871769]
+environment = SubResource("Environment_1dgkn")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=397350612]
+transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76604444, 0.57357645, -0.62750685, 0.5265408, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Level" type="Node3D" parent="." unique_id=574338533]
+
+[node name="B_0_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1800861297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="block-grass-large2" parent="Level/B_0_block_grass_large" unique_id=571093302 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@2" type="CollisionShape3D" parent="Level/B_0_block_grass_large" unique_id=1590066849]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_1_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1322404661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3)
+
+[node name="block-grass-large2" parent="Level/B_1_block_grass_large" unique_id=263050453 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@3" type="CollisionShape3D" parent="Level/B_1_block_grass_large" unique_id=745500608]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_2_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1429951908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
+
+[node name="block-grass-large2" parent="Level/B_2_block_grass_large" unique_id=989632845 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@4" type="CollisionShape3D" parent="Level/B_2_block_grass_large" unique_id=1758926258]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_3_block_grass_large" type="StaticBody3D" parent="Level" unique_id=160233410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
+
+[node name="block-grass-large2" parent="Level/B_3_block_grass_large" unique_id=572809352 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@5" type="CollisionShape3D" parent="Level/B_3_block_grass_large" unique_id=1112659757]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_4_block_grass_large" type="StaticBody3D" parent="Level" unique_id=263795608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="block-grass-large2" parent="Level/B_4_block_grass_large" unique_id=1214406187 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@6" type="CollisionShape3D" parent="Level/B_4_block_grass_large" unique_id=243907680]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_5_block_grass_large" type="StaticBody3D" parent="Level" unique_id=2074226747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="block-grass-large2" parent="Level/B_5_block_grass_large" unique_id=1058520989 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@7" type="CollisionShape3D" parent="Level/B_5_block_grass_large" unique_id=830384036]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_6_block_grass_large" type="StaticBody3D" parent="Level" unique_id=2052473480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
+
+[node name="block-grass-large2" parent="Level/B_6_block_grass_large" unique_id=267074211 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@8" type="CollisionShape3D" parent="Level/B_6_block_grass_large" unique_id=484372864]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_7_block_grass_large" type="StaticBody3D" parent="Level" unique_id=2091884971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="block-grass-large2" parent="Level/B_7_block_grass_large" unique_id=1961737724 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@9" type="CollisionShape3D" parent="Level/B_7_block_grass_large" unique_id=1266224831]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_8_block_grass_large" type="StaticBody3D" parent="Level" unique_id=48025801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="block-grass-large2" parent="Level/B_8_block_grass_large" unique_id=1055425801 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@10" type="CollisionShape3D" parent="Level/B_8_block_grass_large" unique_id=700208679]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_9_block_grass_large" type="StaticBody3D" parent="Level" unique_id=331117623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+
+[node name="block-grass-large2" parent="Level/B_9_block_grass_large" unique_id=1108878580 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@11" type="CollisionShape3D" parent="Level/B_9_block_grass_large" unique_id=145846024]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_10_block_grass_large" type="StaticBody3D" parent="Level" unique_id=141622797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="block-grass-large2" parent="Level/B_10_block_grass_large" unique_id=86870038 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@12" type="CollisionShape3D" parent="Level/B_10_block_grass_large" unique_id=269573564]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_11_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1571069041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
+
+[node name="block-grass-large2" parent="Level/B_11_block_grass_large" unique_id=288092919 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@13" type="CollisionShape3D" parent="Level/B_11_block_grass_large" unique_id=2113312873]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_12_block_grass_large" type="StaticBody3D" parent="Level" unique_id=658336548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
+
+[node name="block-grass-large2" parent="Level/B_12_block_grass_large" unique_id=1402443639 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@14" type="CollisionShape3D" parent="Level/B_12_block_grass_large" unique_id=1837097801]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_13_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1198520376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+
+[node name="block-grass-large2" parent="Level/B_13_block_grass_large" unique_id=1884867057 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@15" type="CollisionShape3D" parent="Level/B_13_block_grass_large" unique_id=1141486243]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_14_block_grass_large" type="StaticBody3D" parent="Level" unique_id=2000942962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="block-grass-large2" parent="Level/B_14_block_grass_large" unique_id=947195570 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@16" type="CollisionShape3D" parent="Level/B_14_block_grass_large" unique_id=2130574147]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_15_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1094658382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="block-grass-large2" parent="Level/B_15_block_grass_large" unique_id=1385315493 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@17" type="CollisionShape3D" parent="Level/B_15_block_grass_large" unique_id=1354051973]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_16_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1173804862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="block-grass-large2" parent="Level/B_16_block_grass_large" unique_id=1681932129 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@18" type="CollisionShape3D" parent="Level/B_16_block_grass_large" unique_id=805096585]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_17_block_grass_large" type="StaticBody3D" parent="Level" unique_id=957795775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5)
+
+[node name="block-grass-large2" parent="Level/B_17_block_grass_large" unique_id=1039651713 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@19" type="CollisionShape3D" parent="Level/B_17_block_grass_large" unique_id=419151323]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_18_block_grass_large" type="StaticBody3D" parent="Level" unique_id=2005716670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+
+[node name="block-grass-large2" parent="Level/B_18_block_grass_large" unique_id=93391403 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@20" type="CollisionShape3D" parent="Level/B_18_block_grass_large" unique_id=2068650323]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_19_block_grass_large" type="StaticBody3D" parent="Level" unique_id=744744557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="block-grass-large2" parent="Level/B_19_block_grass_large" unique_id=1116379273 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@21" type="CollisionShape3D" parent="Level/B_19_block_grass_large" unique_id=11263307]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_20_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1127474216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="block-grass-large2" parent="Level/B_20_block_grass_large" unique_id=1970723467 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@22" type="CollisionShape3D" parent="Level/B_20_block_grass_large" unique_id=184449464]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_21_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1229023781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="block-grass-large2" parent="Level/B_21_block_grass_large" unique_id=2104601088 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@23" type="CollisionShape3D" parent="Level/B_21_block_grass_large" unique_id=1033645632]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_22_block_grass_large" type="StaticBody3D" parent="Level" unique_id=208187383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="block-grass-large2" parent="Level/B_22_block_grass_large" unique_id=825355989 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@24" type="CollisionShape3D" parent="Level/B_22_block_grass_large" unique_id=945546119]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_23_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1496951905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
+
+[node name="block-grass-large2" parent="Level/B_23_block_grass_large" unique_id=752684550 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@25" type="CollisionShape3D" parent="Level/B_23_block_grass_large" unique_id=1204252782]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_24_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1643514204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="block-grass-large2" parent="Level/B_24_block_grass_large" unique_id=94607641 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@26" type="CollisionShape3D" parent="Level/B_24_block_grass_large" unique_id=1767956916]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_25_block_grass_large" type="StaticBody3D" parent="Level" unique_id=2136237030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="block-grass-large2" parent="Level/B_25_block_grass_large" unique_id=315894220 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@27" type="CollisionShape3D" parent="Level/B_25_block_grass_large" unique_id=483100269]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_26_block_grass_large" type="StaticBody3D" parent="Level" unique_id=567646641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="block-grass-large2" parent="Level/B_26_block_grass_large" unique_id=1729861158 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@28" type="CollisionShape3D" parent="Level/B_26_block_grass_large" unique_id=256878423]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_27_block_grass_large" type="StaticBody3D" parent="Level" unique_id=912642898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="block-grass-large2" parent="Level/B_27_block_grass_large" unique_id=920854187 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@29" type="CollisionShape3D" parent="Level/B_27_block_grass_large" unique_id=389793190]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_28_block_grass_large" type="StaticBody3D" parent="Level" unique_id=496841901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="block-grass-large2" parent="Level/B_28_block_grass_large" unique_id=1328952420 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@30" type="CollisionShape3D" parent="Level/B_28_block_grass_large" unique_id=301643239]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_29_block_grass_large" type="StaticBody3D" parent="Level" unique_id=348047783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+
+[node name="block-grass-large2" parent="Level/B_29_block_grass_large" unique_id=1718872320 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@31" type="CollisionShape3D" parent="Level/B_29_block_grass_large" unique_id=1359736612]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_30_block_grass_large" type="StaticBody3D" parent="Level" unique_id=970391606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="block-grass-large2" parent="Level/B_30_block_grass_large" unique_id=1256202505 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@32" type="CollisionShape3D" parent="Level/B_30_block_grass_large" unique_id=137535220]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_31_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1595600440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
+
+[node name="block-grass-large2" parent="Level/B_31_block_grass_large" unique_id=2118202596 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@33" type="CollisionShape3D" parent="Level/B_31_block_grass_large" unique_id=939229057]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_32_block_grass_large" type="StaticBody3D" parent="Level" unique_id=867341298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="block-grass-large2" parent="Level/B_32_block_grass_large" unique_id=596290781 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@34" type="CollisionShape3D" parent="Level/B_32_block_grass_large" unique_id=759034434]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_33_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1247159093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="block-grass-large2" parent="Level/B_33_block_grass_large" unique_id=1614327813 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@35" type="CollisionShape3D" parent="Level/B_33_block_grass_large" unique_id=1176870446]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_34_block_grass_large" type="StaticBody3D" parent="Level" unique_id=373443771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="block-grass-large2" parent="Level/B_34_block_grass_large" unique_id=602879390 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@36" type="CollisionShape3D" parent="Level/B_34_block_grass_large" unique_id=748844730]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_35_block_grass_large" type="StaticBody3D" parent="Level" unique_id=1645226647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="block-grass-large2" parent="Level/B_35_block_grass_large" unique_id=1121455551 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@37" type="CollisionShape3D" parent="Level/B_35_block_grass_large" unique_id=88440721]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="D_36_tree" parent="Level" unique_id=968130718 instance=ExtResource("2_munwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 5)
+
+[node name="D_37_tree_pine" parent="Level" unique_id=1614594296 instance=ExtResource("3_ts3gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 5)
+
+[node name="D_38_tree_pine_small" parent="Level" unique_id=1085862841 instance=ExtResource("4_0nbtd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2, 1, -5.2)
+
+[node name="D_39_flowers" parent="Level" unique_id=859755414 instance=ExtResource("5_37qwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 1, 4.5)
+
+[node name="D_40_flowers_tall" parent="Level" unique_id=363134229 instance=ExtResource("6_navra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, 4.2)
+
+[node name="D_41_grass" parent="Level" unique_id=1486043299 instance=ExtResource("7_luhhm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.5)
+
+[node name="D_42_mushrooms" parent="Level" unique_id=1668596791 instance=ExtResource("8_fh13f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 1, -4.6)
+
+[node name="D_43_rocks" parent="Level" unique_id=59154870 instance=ExtResource("9_rup4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -4.8)
+
+[node name="D_44_flag" parent="Level" unique_id=1379641901 instance=ExtResource("10_4kbfs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1, 0)
+
+[node name="D_45_sign" parent="Level" unique_id=577448785 instance=ExtResource("11_f17e3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1, 1.4)
+
+[node name="Label_46" type="Label3D" parent="Level" unique_id=1902109698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0)
+billboard = 1
+text = "MEADOW DASH
+(easy)"
+font_size = 72
+outline_size = 18
+
+[node name="D_47_flag" parent="Level" unique_id=1148428353 instance=ExtResource("10_4kbfs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1, 0)
+
+[node name="D_48_sign" parent="Level" unique_id=24967092 instance=ExtResource("11_f17e3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1, 1.4)
+
+[node name="Label_49" type="Label3D" parent="Level" unique_id=1630003375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 0)
+billboard = 1
+text = "SNOWY ASCENT
+(medium)"
+font_size = 72
+outline_size = 18
+
+[node name="D_50_flag" parent="Level" unique_id=913500176 instance=ExtResource("10_4kbfs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -5)
+
+[node name="D_51_sign" parent="Level" unique_id=1319832337 instance=ExtResource("11_f17e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1, -5)
+
+[node name="Label_52" type="Label3D" parent="Level" unique_id=395102654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -5)
+billboard = 1
+text = "SKY GAUNTLET
+(hard)"
+font_size = 72
+outline_size = 18
+
+[node name="Course1" type="Node3D" parent="Level" unique_id=1642109783]
+
+[node name="B_0_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1961262390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="block-grass-large2" parent="Level/Course1/B_0_block_grass_large" unique_id=924329864 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@38" type="CollisionShape3D" parent="Level/Course1/B_0_block_grass_large" unique_id=592860814]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_1_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1763880073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="block-grass-large2" parent="Level/Course1/B_1_block_grass_large" unique_id=1223766277 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@39" type="CollisionShape3D" parent="Level/Course1/B_1_block_grass_large" unique_id=476852098]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_2_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=2131900947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="block-grass-large2" parent="Level/Course1/B_2_block_grass_large" unique_id=1850431160 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@40" type="CollisionShape3D" parent="Level/Course1/B_2_block_grass_large" unique_id=439657261]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_3_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1532641320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0, 2)
+
+[node name="block-grass-large2" parent="Level/Course1/B_3_block_grass_large" unique_id=1745315205 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@41" type="CollisionShape3D" parent="Level/Course1/B_3_block_grass_large" unique_id=1011015587]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_4_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1474973973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 4)
+
+[node name="block-grass-large2" parent="Level/Course1/B_4_block_grass_large" unique_id=640535039 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@42" type="CollisionShape3D" parent="Level/Course1/B_4_block_grass_large" unique_id=724283956]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_5_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1956089051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 0, 4)
+
+[node name="block-grass-large2" parent="Level/Course1/B_5_block_grass_large" unique_id=1707303649 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@43" type="CollisionShape3D" parent="Level/Course1/B_5_block_grass_large" unique_id=1475350545]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_6_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=247836823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 3)
+
+[node name="block-grass-large2" parent="Level/Course1/B_6_block_grass_large" unique_id=29111909 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@44" type="CollisionShape3D" parent="Level/Course1/B_6_block_grass_large" unique_id=913935826]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_7_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1727315580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 5)
+
+[node name="block-grass-large2" parent="Level/Course1/B_7_block_grass_large" unique_id=2056138684 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@45" type="CollisionShape3D" parent="Level/Course1/B_7_block_grass_large" unique_id=2125463161]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_8_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1497744803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 3)
+
+[node name="block-grass-large2" parent="Level/Course1/B_8_block_grass_large" unique_id=620937918 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@46" type="CollisionShape3D" parent="Level/Course1/B_8_block_grass_large" unique_id=156260101]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_9_block_grass_large" type="StaticBody3D" parent="Level/Course1" unique_id=1290754197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 5)
+
+[node name="block-grass-large2" parent="Level/Course1/B_9_block_grass_large" unique_id=1271006905 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@47" type="CollisionShape3D" parent="Level/Course1/B_9_block_grass_large" unique_id=600593169]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="D_10_flag" parent="Level/Course1" unique_id=692478027 instance=ExtResource("10_4kbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 1, 4)
+
+[node name="D_11_tree" parent="Level/Course1" unique_id=2129657796 instance=ExtResource("2_munwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3, 1, 5.4)
+
+[node name="D_12_mushrooms" parent="Level/Course1" unique_id=421503526 instance=ExtResource("8_fh13f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6, 1, 0.6)
+
+[node name="D_13_flowers" parent="Level/Course1" unique_id=251717518 instance=ExtResource("5_37qwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, 4.6)
+
+[node name="Label_14" type="Label3D" parent="Level/Course1" unique_id=668799006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 3.2, 4)
+billboard = 1
+text = "FINISH"
+font_size = 80
+outline_size = 20
+
+[node name="Course2" type="Node3D" parent="Level" unique_id=1590072406]
+
+[node name="B_0_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=1106528255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+
+[node name="block-snow-large2" parent="Level/Course2/B_0_block_snow_large" unique_id=805561737 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@48" type="CollisionShape3D" parent="Level/Course2/B_0_block_snow_large" unique_id=1279486853]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_1_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=811656433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.5, 0)
+
+[node name="block-snow-large2" parent="Level/Course2/B_1_block_snow_large" unique_id=430405371 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@49" type="CollisionShape3D" parent="Level/Course2/B_1_block_snow_large" unique_id=1712024650]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_2_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=1654246184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1, 0)
+
+[node name="block-snow-large2" parent="Level/Course2/B_2_block_snow_large" unique_id=628336852 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@50" type="CollisionShape3D" parent="Level/Course2/B_2_block_snow_large" unique_id=2114295850]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_3_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=615896674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 1.5, -2.5)
+
+[node name="block-snow-large2" parent="Level/Course2/B_3_block_snow_large" unique_id=517928111 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@51" type="CollisionShape3D" parent="Level/Course2/B_3_block_snow_large" unique_id=1077105587]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_4_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=2120153046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, -5)
+
+[node name="block-snow-large2" parent="Level/Course2/B_4_block_snow_large" unique_id=2091006051 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@52" type="CollisionShape3D" parent="Level/Course2/B_4_block_snow_large" unique_id=1885962242]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_5_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=1511714716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5, 2.5, -5)
+
+[node name="block-snow-large2" parent="Level/Course2/B_5_block_snow_large" unique_id=1398729146 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@53" type="CollisionShape3D" parent="Level/Course2/B_5_block_snow_large" unique_id=951519487]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_6_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=983213514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 3, -4)
+
+[node name="block-snow-large2" parent="Level/Course2/B_6_block_snow_large" unique_id=1718703047 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@54" type="CollisionShape3D" parent="Level/Course2/B_6_block_snow_large" unique_id=2047844855]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_7_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=276995374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 3, -6)
+
+[node name="block-snow-large2" parent="Level/Course2/B_7_block_snow_large" unique_id=131740956 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@55" type="CollisionShape3D" parent="Level/Course2/B_7_block_snow_large" unique_id=686599512]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_8_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=127959157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 3, -4)
+
+[node name="block-snow-large2" parent="Level/Course2/B_8_block_snow_large" unique_id=254451712 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@56" type="CollisionShape3D" parent="Level/Course2/B_8_block_snow_large" unique_id=1153912913]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="B_9_block_snow_large" type="StaticBody3D" parent="Level/Course2" unique_id=1859835429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 3, -6)
+
+[node name="block-snow-large2" parent="Level/Course2/B_9_block_snow_large" unique_id=1020925493 instance=ExtResource("12_x2olw")]
+
+[node name="@CollisionShape3D@57" type="CollisionShape3D" parent="Level/Course2/B_9_block_snow_large" unique_id=742258781]
+shape = SubResource("ConcavePolygonShape3D_5hglh")
+
+[node name="D_10_flag" parent="Level/Course2" unique_id=686808436 instance=ExtResource("10_4kbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 4, -5)
+
+[node name="D_11_tree_pine_snow" parent="Level/Course2" unique_id=531571709 instance=ExtResource("13_817gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3, 4, -6.3)
+
+[node name="D_12_tree_pine_snow_small" parent="Level/Course2" unique_id=247925045 instance=ExtResource("14_ggc52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6, 2, 0.6)
+
+[node name="Label_13" type="Label3D" parent="Level/Course2" unique_id=752390068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6.2, -5)
+billboard = 1
+text = "FINISH"
+font_size = 80
+outline_size = 20
+
+[node name="Course3" type="Node3D" parent="Level" unique_id=149558488]
+
+[node name="B_0_block_grass_low_large" type="StaticBody3D" parent="Level/Course3" unique_id=1413670504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -9)
+
+[node name="block-grass-low-large2" parent="Level/Course3/B_0_block_grass_low_large" unique_id=173306487 instance=ExtResource("15_l8ah6")]
+
+[node name="@CollisionShape3D@58" type="CollisionShape3D" parent="Level/Course3/B_0_block_grass_low_large" unique_id=2079077936]
+shape = SubResource("ConcavePolygonShape3D_qg546")
+
+[node name="B_1_platform" type="StaticBody3D" parent="Level/Course3" unique_id=100001075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -12)
+
+[node name="platform2" parent="Level/Course3/B_1_platform" unique_id=1236679970 instance=ExtResource("16_e75v4")]
+
+[node name="@CollisionShape3D@59" type="CollisionShape3D" parent="Level/Course3/B_1_platform" unique_id=1635467956]
+shape = SubResource("ConcavePolygonShape3D_pf35h")
+
+[node name="B_2_platform" type="StaticBody3D" parent="Level/Course3" unique_id=169776220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.2, -15)
+
+[node name="platform2" parent="Level/Course3/B_2_platform" unique_id=706303247 instance=ExtResource("16_e75v4")]
+
+[node name="@CollisionShape3D@60" type="CollisionShape3D" parent="Level/Course3/B_2_platform" unique_id=25646065]
+shape = SubResource("ConcavePolygonShape3D_pf35h")
+
+[node name="B_3_platform" type="StaticBody3D" parent="Level/Course3" unique_id=1567024781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -18)
+
+[node name="platform2" parent="Level/Course3/B_3_platform" unique_id=661851270 instance=ExtResource("16_e75v4")]
+
+[node name="@CollisionShape3D@61" type="CollisionShape3D" parent="Level/Course3/B_3_platform" unique_id=308053619]
+shape = SubResource("ConcavePolygonShape3D_pf35h")
+
+[node name="B_4_platform" type="StaticBody3D" parent="Level/Course3" unique_id=1099169881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.8, -21)
+
+[node name="platform2" parent="Level/Course3/B_4_platform" unique_id=40241157 instance=ExtResource("16_e75v4")]
+
+[node name="@CollisionShape3D@62" type="CollisionShape3D" parent="Level/Course3/B_4_platform" unique_id=221452322]
+shape = SubResource("ConcavePolygonShape3D_pf35h")
+
+[node name="B_5_platform" type="StaticBody3D" parent="Level/Course3" unique_id=1268627899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.1, -24)
+
+[node name="platform2" parent="Level/Course3/B_5_platform" unique_id=1911039086 instance=ExtResource("16_e75v4")]
+
+[node name="@CollisionShape3D@63" type="CollisionShape3D" parent="Level/Course3/B_5_platform" unique_id=729614932]
+shape = SubResource("ConcavePolygonShape3D_pf35h")
+
+[node name="B_6_platform" type="StaticBody3D" parent="Level/Course3" unique_id=1272718094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -27)
+
+[node name="platform2" parent="Level/Course3/B_6_platform" unique_id=625442491 instance=ExtResource("16_e75v4")]
+
+[node name="@CollisionShape3D@64" type="CollisionShape3D" parent="Level/Course3/B_6_platform" unique_id=1447112500]
+shape = SubResource("ConcavePolygonShape3D_pf35h")
+
+[node name="B_7_block_grass_large" type="StaticBody3D" parent="Level/Course3" unique_id=718385016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.9, -31)
+
+[node name="block-grass-large2" parent="Level/Course3/B_7_block_grass_large" unique_id=2112889852 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@65" type="CollisionShape3D" parent="Level/Course3/B_7_block_grass_large" unique_id=656662577]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_8_block_grass_large" type="StaticBody3D" parent="Level/Course3" unique_id=354908827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.9, -31)
+
+[node name="block-grass-large2" parent="Level/Course3/B_8_block_grass_large" unique_id=2010266079 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@66" type="CollisionShape3D" parent="Level/Course3/B_8_block_grass_large" unique_id=1679126239]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_9_block_grass_large" type="StaticBody3D" parent="Level/Course3" unique_id=799110097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.9, -33)
+
+[node name="block-grass-large2" parent="Level/Course3/B_9_block_grass_large" unique_id=969869378 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@67" type="CollisionShape3D" parent="Level/Course3/B_9_block_grass_large" unique_id=702523211]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="B_10_block_grass_large" type="StaticBody3D" parent="Level/Course3" unique_id=119329495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.9, -33)
+
+[node name="block-grass-large2" parent="Level/Course3/B_10_block_grass_large" unique_id=1948785821 instance=ExtResource("1_xgqkh")]
+
+[node name="@CollisionShape3D@68" type="CollisionShape3D" parent="Level/Course3/B_10_block_grass_large" unique_id=1688130384]
+shape = SubResource("ConcavePolygonShape3D_e68xj")
+
+[node name="D_11_flag" parent="Level/Course3" unique_id=864759244 instance=ExtResource("10_4kbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -32)
+
+[node name="D_12_jewel" parent="Level/Course3" unique_id=828472704 instance=ExtResource("17_8u370")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -33.5)
+
+[node name="Label_13" type="Label3D" parent="Level/Course3" unique_id=1354397219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1, -32)
+billboard = 1
+text = "FINISH"
+font_size = 80
+outline_size = 20
+
+[node name="Race1" type="Node3D" parent="." unique_id=1422512637 groups=["race"]]
+script = ExtResource("27_race")
+race_name = "Meadow Dash"
+bot_speeds = PackedFloat32Array(3.5, 3, 2.6)
+
+[node name="StartArea" type="Area3D" parent="Race1" unique_id=1833617512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.8, 0)
+
+[node name="@CollisionShape3D@69" type="CollisionShape3D" parent="Race1/StartArea" unique_id=1160486832]
+shape = SubResource("BoxShape3D_iexy4")
+
+[node name="FinishArea" type="Area3D" parent="Race1" unique_id=1001857317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2.2, 4)
+
+[node name="@CollisionShape3D@70" type="CollisionShape3D" parent="Race1/FinishArea" unique_id=1671350326]
+shape = SubResource("BoxShape3D_npbic")
+
+[node name="StartMarker" type="Marker3D" parent="Race1" unique_id=1462205542]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 1.2, 0)
+
+[node name="ReturnMarker" type="Marker3D" parent="Race1" unique_id=2109420241]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 1.3, 0)
+
+[node name="Waypoints" type="Node3D" parent="Race1" unique_id=1838849354]
+
+[node name="WP0" type="Marker3D" parent="Race1/Waypoints" unique_id=230531203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 0)
+
+[node name="WP1" type="Marker3D" parent="Race1/Waypoints" unique_id=1896976348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, 0)
+
+[node name="WP2" type="Marker3D" parent="Race1/Waypoints" unique_id=480100458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, 0)
+
+[node name="WP3" type="Marker3D" parent="Race1/Waypoints" unique_id=296200340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 1, 2)
+
+[node name="WP4" type="Marker3D" parent="Race1/Waypoints" unique_id=673955541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, 4)
+
+[node name="WP5" type="Marker3D" parent="Race1/Waypoints" unique_id=1743482880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 1, 4)
+
+[node name="WP6" type="Marker3D" parent="Race1/Waypoints" unique_id=764626650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 1, 4)
+
+[node name="Bots" type="Node3D" parent="Race1" unique_id=1365877668]
+
+[node name="Bot0" parent="Race1/Bots" unique_id=809121152 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7, 1, 0.7)
+bot_name = "Blitz"
+speed = 3.5
+lane_offset = Vector3(0.7, 0, 0.7)
+
+[node name="BotModel2" parent="Race1/Bots/Bot0" unique_id=570904077 instance=ExtResource("20_hi6a0")]
+
+[node name="Bot1" parent="Race1/Bots" unique_id=1090146854 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, 1, -0.4)
+bot_name = "Zippy"
+lane_offset = Vector3(-0.7, 0, -0.4)
+
+[node name="BotModel2" parent="Race1/Bots/Bot1" unique_id=633375505 instance=ExtResource("21_eo1xk")]
+
+[node name="Bot2" parent="Race1/Bots" unique_id=286335191 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 1, -0.8)
+bot_name = "Pokey"
+speed = 2.6
+lane_offset = Vector3(0.4, 0, -0.8)
+
+[node name="BotModel2" parent="Race1/Bots/Bot2" unique_id=779645193 instance=ExtResource("22_18clu")]
+
+[node name="Race2" type="Node3D" parent="." unique_id=1373244369 groups=["race"]]
+script = ExtResource("27_race")
+race_name = "Snowy Ascent"
+bot_speeds = PackedFloat32Array(3, 2.7, 2.4)
+
+[node name="StartArea" type="Area3D" parent="Race2" unique_id=1244726022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.8, 0)
+
+[node name="@CollisionShape3D@71" type="CollisionShape3D" parent="Race2/StartArea" unique_id=2114723342]
+shape = SubResource("BoxShape3D_e6ckp")
+
+[node name="FinishArea" type="Area3D" parent="Race2" unique_id=1837767780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 5.2, -5)
+
+[node name="@CollisionShape3D@72" type="CollisionShape3D" parent="Race2/FinishArea" unique_id=1644848012]
+shape = SubResource("BoxShape3D_mvg0v")
+
+[node name="StartMarker" type="Marker3D" parent="Race2" unique_id=1732526766]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9, 1.2, 0)
+
+[node name="ReturnMarker" type="Marker3D" parent="Race2" unique_id=2015528234]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 1.3, 0)
+
+[node name="Waypoints" type="Node3D" parent="Race2" unique_id=1165743868]
+
+[node name="WP0" type="Marker3D" parent="Race2/Waypoints" unique_id=814132012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 0)
+
+[node name="WP1" type="Marker3D" parent="Race2/Waypoints" unique_id=526454504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.5, 0)
+
+[node name="WP2" type="Marker3D" parent="Race2/Waypoints" unique_id=247497319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 0)
+
+[node name="WP3" type="Marker3D" parent="Race2/Waypoints" unique_id=2089557002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 2.5, -2.5)
+
+[node name="WP4" type="Marker3D" parent="Race2/Waypoints" unique_id=209724589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 3, -5)
+
+[node name="WP5" type="Marker3D" parent="Race2/Waypoints" unique_id=711540701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5, 3.5, -5)
+
+[node name="WP6" type="Marker3D" parent="Race2/Waypoints" unique_id=803889793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 4, -5)
+
+[node name="Bots" type="Node3D" parent="Race2" unique_id=1720454803]
+
+[node name="Bot0" parent="Race2/Bots" unique_id=1863599449 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3, 1, 0.7)
+bot_name = "Frosty"
+lane_offset = Vector3(0.7, 0, 0.7)
+
+[node name="BotModel2" parent="Race2/Bots/Bot0" unique_id=1043685577 instance=ExtResource("21_eo1xk")]
+
+[node name="Bot1" parent="Race2/Bots" unique_id=1890937279 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7, 1, -0.4)
+bot_name = "Chill"
+speed = 2.7
+lane_offset = Vector3(-0.7, 0, -0.4)
+
+[node name="BotModel2" parent="Race2/Bots/Bot1" unique_id=56225638 instance=ExtResource("22_18clu")]
+
+[node name="Bot2" parent="Race2/Bots" unique_id=72752992 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 1, -0.8)
+bot_name = "Slush"
+speed = 2.4
+lane_offset = Vector3(0.4, 0, -0.8)
+
+[node name="BotModel2" parent="Race2/Bots/Bot2" unique_id=1762140066 instance=ExtResource("23_4wdv8")]
+
+[node name="Race3" type="Node3D" parent="." unique_id=360848361 groups=["race"]]
+script = ExtResource("27_race")
+race_name = "Sky Gauntlet"
+bot_speeds = PackedFloat32Array(2.6, 2.3, 2)
+
+[node name="StartArea" type="Area3D" parent="Race3" unique_id=51063117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -5)
+
+[node name="@CollisionShape3D@73" type="CollisionShape3D" parent="Race3/StartArea" unique_id=1933676575]
+shape = SubResource("BoxShape3D_h3odw")
+
+[node name="FinishArea" type="Area3D" parent="Race3" unique_id=1601894482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7, -32)
+
+[node name="@CollisionShape3D@74" type="CollisionShape3D" parent="Race3/FinishArea" unique_id=1778982978]
+shape = SubResource("BoxShape3D_5hl1e")
+
+[node name="StartMarker" type="Marker3D" parent="Race3" unique_id=120092278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -9)
+
+[node name="ReturnMarker" type="Marker3D" parent="Race3" unique_id=1018711827]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.3, -2)
+
+[node name="Waypoints" type="Node3D" parent="Race3" unique_id=1417240362]
+
+[node name="WP0" type="Marker3D" parent="Race3/Waypoints" unique_id=1781291439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -9)
+
+[node name="WP1" type="Marker3D" parent="Race3/Waypoints" unique_id=1776751689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.2, -12)
+
+[node name="WP2" type="Marker3D" parent="Race3/Waypoints" unique_id=508349098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.4, -15)
+
+[node name="WP3" type="Marker3D" parent="Race3/Waypoints" unique_id=1429020851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.7, -18)
+
+[node name="WP4" type="Marker3D" parent="Race3/Waypoints" unique_id=1473757646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -21)
+
+[node name="WP5" type="Marker3D" parent="Race3/Waypoints" unique_id=677191292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.3, -24)
+
+[node name="WP6" type="Marker3D" parent="Race3/Waypoints" unique_id=1514612782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, -27)
+
+[node name="WP7" type="Marker3D" parent="Race3/Waypoints" unique_id=377296663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -32)
+
+[node name="Bots" type="Node3D" parent="Race3" unique_id=534164011]
+
+[node name="Bot0" parent="Race3/Bots" unique_id=949278590 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1, -8.3)
+bot_name = "Ace"
+speed = 2.6
+lane_offset = Vector3(0.7, 0, 0.7)
+
+[node name="BotModel2" parent="Race3/Bots/Bot0" unique_id=1050241721 instance=ExtResource("22_18clu")]
+
+[node name="Bot1" parent="Race3/Bots" unique_id=1659140201 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1, -9.4)
+bot_name = "Skye"
+speed = 2.3
+lane_offset = Vector3(-0.7, 0, -0.4)
+
+[node name="BotModel2" parent="Race3/Bots/Bot1" unique_id=596468263 instance=ExtResource("23_4wdv8")]
+
+[node name="Bot2" parent="Race3/Bots" unique_id=1086444631 instance=ExtResource("18_rga7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, -9.8)
+bot_name = "Gusty"
+speed = 2.0
+lane_offset = Vector3(0.4, 0, -0.8)
+
+[node name="BotModel2" parent="Race3/Bots/Bot2" unique_id=995510373 instance=ExtResource("20_hi6a0")]
+
+[node name="Player" parent="." unique_id=1947758036 instance=ExtResource("24_d46x8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 2)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=991255050]
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=1052714826]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 70.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="HUD" unique_id=219723648]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="HUD" unique_id=2020258197]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = -14.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1

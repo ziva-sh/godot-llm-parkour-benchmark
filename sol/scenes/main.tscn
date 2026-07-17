@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4ali4ix4bi21"]
+
+[ext_resource type="Script" uid="uid://ccbfg7wg28jns" path="res://scripts/parkour_world.gd" id="1_world"]
+
+[node name="ParkourWorld" type="Node3D" unique_id=83488469]
+script = ExtResource("1_world")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/bot.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Kenny_Platformer_Kit/Models/GLB format/character-oobi.glb" id="2_model"]
+
+[node name="Bot" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="BotModel" parent="." instance=ExtResource("2_model")]
+
+[node name="NameLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+billboard = 1
+text = "Bot"
+font_size = 48
+outline_size = 12

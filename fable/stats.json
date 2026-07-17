@@ -1,0 +1,32 @@
+{
+  "label": "Fable (Claude Fable 5)",
+  "chat_id": "chat_090b4b52fffejTM569rnnhLxdn",
+  "model": "anthropic/claude-fable-5",
+  "effort": "medium",
+  "billed_usd": 46.186,
+  "market_usd": 0.0,
+  "input_tokens": 3445605,
+  "output_tokens": 114113,
+  "tool_calls": 66,
+  "reasoning_parts": 42,
+  "text_parts": 18,
+  "duration_s": 1950.4,
+  "tool_breakdown": {
+    "edit_file": 21,
+    "execute_script": 8,
+    "create_file": 7,
+    "playtest": 5,
+    "get_godot_errors": 5,
+    "grep_code": 4,
+    "read": 4,
+    "glob": 3,
+    "get_input_map": 2,
+    "get_project_info": 1,
+    "search_docs": 1,
+    "update_project_setting": 1,
+    "get_scene_tree": 1,
+    "clear_output_logs": 1,
+    "rm": 1,
+    "open_scene": 1
+  }
+}

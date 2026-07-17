@@ -1,0 +1,32 @@
+{
+  "label": "GPT 5.6 Sol",
+  "chat_id": "chat_0910c7c73ffenD3rjMC9SVKkMy",
+  "model": "ext:chatgpt:gpt-5.6-sol",
+  "effort": "medium",
+  "billed_usd": 0.0,
+  "market_usd": 2.9364,
+  "input_tokens": 213444,
+  "output_tokens": 19945,
+  "tool_calls": 73,
+  "reasoning_parts": 27,
+  "text_parts": 3,
+  "duration_s": 581.9,
+  "tool_breakdown": {
+    "edit_file": 26,
+    "glob": 6,
+    "execute_script": 5,
+    "create_file": 5,
+    "run_tests": 5,
+    "playtest": 5,
+    "write_todos": 4,
+    "search_docs": 4,
+    "read": 4,
+    "grep_code": 2,
+    "get_godot_errors": 2,
+    "get_project_info": 1,
+    "get_input_map": 1,
+    "update_project_setting": 1,
+    "clear_output_logs": 1,
+    "get_scene_tree": 1
+  }
+}

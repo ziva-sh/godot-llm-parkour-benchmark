@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cu3a051h7pi6o"
+path="res://.godot/imported/tree-snow.obj-74ba584bb08d0170278df9f017a0e8ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree-snow.obj-74ba584bb08d0170278df9f017a0e8ef.mesh"]
+
+source_file="res://Kenny_Platformer_Kit/Models/OBJ format/tree-snow.obj"
+dest_files=["res://.godot/imported/tree-snow.obj-74ba584bb08d0170278df9f017a0e8ef.mesh", "res://.godot/imported/tree-snow.obj-74ba584bb08d0170278df9f017a0e8ef.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

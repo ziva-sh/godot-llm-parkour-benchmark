@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ca0xl07qlt6do"
+path="res://.godot/imported/tree.obj-2c4e2a1ec9fa4c20c33c3da5d6eae00c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree.obj-2c4e2a1ec9fa4c20c33c3da5d6eae00c.mesh"]
+
+source_file="res://Kenny_Platformer_Kit/Models/OBJ format/tree.obj"
+dest_files=["res://.godot/imported/tree.obj-2c4e2a1ec9fa4c20c33c3da5d6eae00c.mesh", "res://.godot/imported/tree.obj-2c4e2a1ec9fa4c20c33c3da5d6eae00c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
