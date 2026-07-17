@@ -1,0 +1,22 @@
+{
+  "label": "Kimi 3 (K3) \u2014 DID NOT FINISH",
+  "chat_id": "chat_09059c3e9ffecVZncI8GTmTtgs",
+  "model": "moonshotai/kimi-k3",
+  "effort": "medium",
+  "billed_usd": 0.9527,
+  "market_usd": 0.0,
+  "input_tokens": 323986,
+  "output_tokens": 31415,
+  "tool_calls": 20,
+  "reasoning_parts": 12,
+  "text_parts": 13,
+  "duration_s": 1704.9,
+  "tool_breakdown": {
+    "create_file": 10,
+    "bash": 4,
+    "execute_script": 3,
+    "glob": 1,
+    "get_project_info": 1,
+    "write_todos": 1
+  }
+}

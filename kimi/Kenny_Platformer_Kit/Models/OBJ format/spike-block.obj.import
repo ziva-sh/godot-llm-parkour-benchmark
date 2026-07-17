@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://beog0i6hh43xd"
+path="res://.godot/imported/spike-block.obj-33b58e1ae062476508c547bdaf88ff56.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spike-block.obj-33b58e1ae062476508c547bdaf88ff56.mesh"]
+
+source_file="res://Kenny_Platformer_Kit/Models/OBJ format/spike-block.obj"
+dest_files=["res://.godot/imported/spike-block.obj-33b58e1ae062476508c547bdaf88ff56.mesh", "res://.godot/imported/spike-block.obj-33b58e1ae062476508c547bdaf88ff56.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
