@@ -5,7 +5,7 @@ Three frontier LLMs, one prompt, **one turn each**, working as autonomous agents
 parkour world where you race bots across three courses, using the CC0
 [Kenney Platformer Kit](https://kenney.nl/assets/platformer-kit).
 
-📝 Writeup: **https://ziva.sh/blogs/godot-ai-benchmark** (publishing soon)
+📝 Writeup: **https://ziva.sh/blogs/godot-ai-benchmark**
 
 ## The prompt (given once, verbatim)
 
@@ -39,4 +39,4 @@ the same empty project, and ran uninterrupted (no follow-up messages). Tool perm
 auto-approved so the run was fully autonomous. Worlds were verified by each model's own in-run
 playtests plus a manual code review.
 
-Built with [Ziva](https://ziva.sh) — the AI agent that lives inside the Godot editor.
+Built with [Ziva](https://ziva.sh), an AI agent that runs inside the Godot editor, made by Zivash Inc.
